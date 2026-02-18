@@ -1,0 +1,68 @@
+MIT License
+
+Copyright (c) 2026 AI Systems
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Fair Use & Attribution
+
+While the MIT license permits free use, we appreciate attribution:
+
+**In your project README**, please include:
+```
+Generated with [AI SUPER PLUS Code Agent](https://github.com/ai-systems/ai-super-plus-code-agent)
+```
+
+**In your project metadata**, you may include:
+```json
+{
+  "generatedWith": "ai-super-plus-code-agent@2.0.0",
+  "modelUsed": "claude-opus-4-6",
+  "generatedAt": "2026-02-18"
+}
+```
+
+---
+
+## Disclaimer
+
+This Software is provided as-is for use in code generation and project scaffolding.
+
+**Use at your own risk:**
+- Review all generated code before deployment
+- Run comprehensive tests before production
+- Conduct your own security audit
+- Ensure compliance with your industry requirements
+- Do not use for malicious purposes
+
+---
+
+## Code of Conduct
+
+- Use this tool responsibly
+- Don't generate code for harmful purposes
+- Don't use to violate intellectual property
+- Share improvements and patterns back with community
+
+---
+
+Version: MIT
+Updated: 2026-02-18

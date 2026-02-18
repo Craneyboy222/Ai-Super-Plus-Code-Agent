@@ -1,0 +1,193 @@
+{
+  "schemaVersion": "1.0",
+  "hooks": [
+    {
+      "id": "file_changed",
+      "name": "File Changed",
+      "description": "Triggered when source code files change in the project",
+      "trigger": "file:changed",
+      "pattern": "src/**/*.{ts,tsx,js,jsx,py,go,java,rs}",
+      "actions": [
+        {
+          "agent": "explorer",
+          "action": "scan_and_analyze",
+          "description": "Quick scan to detect patterns, imports, dependencies"
+        },
+        {
+          "agent": "code-reviewer",
+          "action": "review_incremental",
+          "description": "Incremental code review of changed file",
+          "options": {
+            "focusOn": ["architecture", "errors", "security", "performance"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_failure",
+      "name": "Test Failure",
+      "description": "Triggered when tests fail",
+      "trigger": "test:failure",
+      "actions": [
+        {
+          "agent": "explorer",
+          "action": "analyze_test_failure",
+          "description": "Analyze the failing test and related code"
+        },
+        {
+          "agent": "backend-builder",
+          "action": "suggest_fixes",
+          "description": "Suggest fixes based on failure analysis",
+          "priority": "high"
+        },
+        {
+          "agent": "test-engineer",
+          "action": "generate_fix_and_test",
+          "description": "Generate fix and verify with comprehensive tests"
+        }
+      ]
+    },
+    {
+      "id": "build_failure",
+      "name": "Build Failure",
+      "description": "Triggered when build process fails",
+      "trigger": "build:failure",
+      "actions": [
+        {
+          "agent": "explorer",
+          "action": "parse_build_error",
+          "description": "Parse and categorize build error"
+        },
+        {
+          "agent": "backend-builder",
+          "action": "diagnose",
+          "description": "Diagnose root cause of build failure",
+          "priority": "critical"
+        },
+        {
+          "agent": "devops-engineer",
+          "action": "fix_build_config",
+          "description": "Fix build configuration and dependencies"
+        }
+      ]
+    },
+    {
+      "id": "security_warning",
+      "name": "Security Warning",
+      "description": "Triggered on security issues detected (SAST, dependency scan)",
+      "trigger": "security:warning",
+      "pattern": "vulnerability|cve|secrets|auth|injection",
+      "actions": [
+        {
+          "agent": "security-engineer",
+          "action": "assess_and_fix",
+          "description": "Assess security vulnerability and generate fix",
+          "priority": "critical"
+        },
+        {
+          "agent": "code-reviewer",
+          "action": "review_security_fix",
+          "description": "Review security fix for completeness"
+        }
+      ]
+    },
+    {
+      "id": "before_commit",
+      "name": "Before Commit",
+      "description": "Triggered before code is committed (pre-commit hook)",
+      "trigger": "git:before_commit",
+      "actions": [
+        {
+          "agent": "explorer",
+          "action": "lint_and_format",
+          "description": "Run linter and formatter on staged files"
+        },
+        {
+          "agent": "code-reviewer",
+          "action": "pre_commit_review",
+          "description": "Quick architectural and pattern review",
+          "options": {
+            "failOnError": true
+          }
+        },
+        {
+          "agent": "test-engineer",
+          "action": "run_unit_tests",
+          "description": "Run unit tests for affected code"
+        }
+      ]
+    },
+    {
+      "id": "code_review",
+      "name": "Code Review",
+      "description": "Triggered on pull request / code review request",
+      "trigger": "pr:created",
+      "actions": [
+        {
+          "agent": "code-reviewer",
+          "action": "comprehensive_review",
+          "description": "Full production-grade code review with detailed feedback",
+          "priority": "high"
+        },
+        {
+          "agent": "performance-engineer",
+          "action": "analyze_performance_impact",
+          "description": "Analyze potential performance implications"
+        },
+        {
+          "agent": "test-engineer",
+          "action": "verify_test_coverage",
+          "description": "Verify test coverage meets standards (80%+)"
+        }
+      ]
+    },
+    {
+      "id": "performance_regression",
+      "name": "Performance Regression",
+      "description": "Triggered when performance benchmarks regress",
+      "trigger": "perf:regression",
+      "actions": [
+        {
+          "agent": "explorer",
+          "action": "identify_changed_code",
+          "description": "Identify code that likely caused regression"
+        },
+        {
+          "agent": "performance-engineer",
+          "action": "profile_and_optimize",
+          "description": "Profile hot paths and suggest optimizations",
+          "priority": "high"
+        },
+        {
+          "agent": "backend-builder",
+          "action": "implement_optimization",
+          "description": "Implement performance improvements"
+        }
+      ]
+    },
+    {
+      "id": "deploy",
+      "name": "Deployment Event",
+      "description": "Triggered before/after deployment to production",
+      "trigger": "deploy:pre",
+      "actions": [
+        {
+          "agent": "code-reviewer",
+          "action": "final_verification",
+          "description": "Final verification before production deployment",
+          "priority": "critical"
+        },
+        {
+          "agent": "devops-engineer",
+          "action": "pre_deploy_checks",
+          "description": "Verify deployment configs, secrets, monitoring"
+        },
+        {
+          "agent": "test-engineer",
+          "action": "run_e2e_tests",
+          "description": "Run E2E tests against staging environment"
+        }
+      ]
+    }
+  ]
+}
